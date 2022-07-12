@@ -7,9 +7,6 @@ desired_width = 500
 pd.set_option('display.width', desired_width)
 np.set_printoptions(linewidth=desired_width)
 
-
-
-
 n=4
 np.set_printoptions(threshold=np.inf)
 def genPhaseMatrix(n):
@@ -70,14 +67,12 @@ def genAmpMatrix(n):
                         mat = newMat
     return mat[1:,:]
 
-
-
 for i in range(3,36):
     print(i)
     fld=genPhaseMatrix(i)
     filehand=open(f'{i}-PhaseMatrix.obj','wb')
     pickle.dump(fld,filehand)
-
+print('test')
 
 
 
