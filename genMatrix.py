@@ -1,7 +1,7 @@
 import math
 import pandas as pd
 import numpy as np
-import pickle
+
 import nifty8 as ift
 desired_width = 500
 pd.set_option('display.width', desired_width)
@@ -31,7 +31,7 @@ def genPhaseMatrix(n):
     mat=mat[1:,:]
     dom=ift.UnstructuredDomain(mat.shape)
     fied=ift.Field(dom,mat)
-    return fied
+    return mat
 
 def genAmpMatrix(n):
     O = math.comb(n, 2)
@@ -67,12 +67,16 @@ def genAmpMatrix(n):
                         mat = newMat
     return mat[1:,:]
 
-for i in range(3,36):
+f=open(f'PhaseMatrix{3}.npy','wb')
+np.save(f, genPhaseMatrix(3)[0])
+for i in range(4,37):
+    f=open(f'PhaseMatrix{i}.npy','wb')
     print(i)
-    fld=genPhaseMatrix(i)
-    filehand=open(f'{i}-PhaseMatrix.obj','wb')
-    pickle.dump(fld,filehand)
-print('test')
+    np.save(f,genPhaseMatrix(i))
+
+
+
+
 
 
 
