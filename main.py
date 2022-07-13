@@ -1,7 +1,6 @@
 import nifty8 as ift
 import numpy as np
-
-mat=np.zeros((5,5),dtype=int)
+import load_data.main as ld
 
 
 class Op (ift.LinearOperator):
@@ -12,12 +11,14 @@ class Op (ift.LinearOperator):
             #schauen, wie viele Antennen und Laden der Entsprechenden Matrix
             with open("AmplitudeMatrix4.npy", 'rb') as f:
                 x = np.load(f)
-            neheme imaginär teil
-            multipliziere mit richtiger Matrix()
-            return(closure_phases)
+            #neheme imaginär teil
+            #multipliziere mit richtiger Matrix()
+            #return(closure_phases)
         else:
             print("sas")
 
 
-operator = Op()
-operator.apply(mat,operator.TIMES)
+
+
+data = ld.load_csv('load_data/1.csv')
+antennas = set(data['ant1'].flatten())

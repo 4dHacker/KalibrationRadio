@@ -30,6 +30,3 @@ def load_csv(file_name):
         'sigma': np.array(sigma),
         'freq': freq,
     }
-
-
-print(load_csv("1.csv"))
