@@ -18,7 +18,10 @@ class Op (ift.LinearOperator):
             print("sas")
 
 
-
-
 data = ld.load_csv('load_data/1.csv')
-antennas = set(data['ant1'].flatten())
+antennas = set(data['ant1'].flatten()) | set(data['ant2'].flatten())
+times = set(data['time'].flatten())
+
+print(antennas)
+print(times)
+print(data.keys())
