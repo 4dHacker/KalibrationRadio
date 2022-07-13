@@ -67,12 +67,12 @@ def genAmpMatrix(n):
                         mat = newMat
     return mat[1:,:]
 
-f=open(f'PhaseMatrix{3}.npy','wb')
-np.save(f, genPhaseMatrix(3)[0])
+
+
 for i in range(4,37):
-    f=open(f'PhaseMatrix{i}.npy','wb')
+    f=open(f'AmplitudeMatrix{i}.npy','wb')
     print(i)
-    np.save(f,genPhaseMatrix(i))
+    np.save(f,genAmpMatrix(i))
 
 
 
